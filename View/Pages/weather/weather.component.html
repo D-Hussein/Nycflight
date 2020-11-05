@@ -1,0 +1,32 @@
+<h1>Weather</h1>
+
+<!--Feature 5 - Weather observations for origins-->
+<p *ngIf="!weatherObservationsForOrigins"><em>Loading...</em></p>
+
+<table class='table' *ngIf="weatherObservationsForOrigins" style="margin-top: 30px;">
+  <caption>Weather observations for origins</caption>
+  <thead>
+    <tr>
+      <th>Origin</th>
+      <th>Number of weather observations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of weatherObservationsForOrigins | getValues">
+      <td>{{ item.key }}</td>
+      <td>{{ item.val }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--Feature 6 - Temperature attributes for origins-->
+<div id="chartContainer6" style="height: 480px; width:650px; margin-top: 30px;"></div>
+
+<!--Feature 7 - Temperatures for JFK-->
+<div id="chartContainer7" style="height: 480px; width:650px; margin-top: 30px;"></div>
+
+<!--Feature 8 - Daily mean temperature for JFK-->
+<div id="chartContainer8" style="height: 480px; width:650px; margin-top: 30px;"></div>
+
+<!--Feature 9 - Daily mean temperature for origins-->
+<div id="chartContainer9" style="height: 480px; width:650px; margin-top: 30px;"></div>

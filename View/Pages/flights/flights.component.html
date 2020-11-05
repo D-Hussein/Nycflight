@@ -1,0 +1,84 @@
+<h1>Flights</h1>
+
+  <body>
+    <!--Feature 1 - Flights per month-->
+    <div id="chartContainer1" style="height: 400px; width: 650px; margin-top: 30px;"></div>
+
+    <!--Feature 2 - Flights per month from origins-->
+    <div id="chartContainer2Frequency" style="height: 400px; width: 650px; margin-top: 30px;"></div>
+    <div id="chartContainer2Stacked" style="height: 400px; width: 650px; margin-top: 30px;"></div>
+    <div id="chartContainer2StackedPercentage" style="height: 400px; width: 650px; margin-top: 30px;"></div>
+
+    <!--Feature 3 - Top 10 destinations-->
+    <p *ngIf="!flightsToTopTenDestinations"><em>Loading...</em></p>
+
+    <table class='table' *ngIf="flightsToTopTenDestinations" style="margin-top: 30px;">
+      <caption>Number of flights to top 10 destinations</caption>
+      <thead>
+        <tr>
+          <th>Destination</th>
+          <th>Number of flights</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of flightsToTopTenDestinations | getValues">
+          <td>{{ item.key }}</td>
+          <td>{{ item.val }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div id="chartContainer3" style="height: 400px; width: 650px; margin-top: 30px;"></div>
+
+    <!--Feature 4 - Mean airtime for origins-->
+    <p *ngIf="!meanAirtimeForOrigins"><em>Loading...</em></p>
+
+    <table class='table' *ngIf="meanAirtimeForOrigins" style="margin-top: 30px;">
+      <caption>Mean airtime for origins</caption>
+      <thead>
+        <tr>
+          <th>Origin</th>
+          <th>Mean airtime (hh:mm:ss)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of meanAirtimeForOrigins | getValues">
+          <td>{{ item.key }}</td>
+          <td>{{ item.val }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!--Feature 10 - Mean departure and arrival delays for origins-->
+    <table class='table' *ngIf="meanDepartureAndArrivalDelaysForJFK && meanDepartureAndArrivalDelaysForEWR && meanDepartureAndArrivalDelaysForLGA"
+           style="margin-top: 30px;">
+      <caption>Mean departure and arrival delays for origins</caption>
+      <thead>
+        <tr>
+          <th>Origin</th>
+          <th>Departure delay (hh:mm:ss)</th>
+          <th>Arrival delay (hh:mm:ss)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of meanDepartureAndArrivalDelaysForJFK | getValues">
+          <td>JFK</td>
+          <td>{{ item.key }}</td>
+          <td>{{ item.val }}</td>
+        </tr>
+
+        <tr *ngFor="let item of meanDepartureAndArrivalDelaysForEWR | getValues">
+          <td>EWR</td>
+          <td>{{ item.key }}</td>
+          <td>{{ item.val }}</td>
+        </tr>
+
+        <tr *ngFor="let item of meanDepartureAndArrivalDelaysForLGA | getValues">
+          <td>LGA</td>
+          <td>{{ item.key }}</td>
+          <td>{{ item.val }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>

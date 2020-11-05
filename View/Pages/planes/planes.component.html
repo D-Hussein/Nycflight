@@ -1,0 +1,59 @@
+<h1>Planes</h1>
+
+<!--Feature 11 - Manufacturers with more than 200 planes-->
+<p *ngIf="!manufacturersMoreThanTwoHundredPlanes"><em>Loading...</em></p>
+
+<table class='table' *ngIf="manufacturersMoreThanTwoHundredPlanes" style="margin-top: 30px;">
+  <caption>Manufacturers with more than 200 planes</caption>
+  <thead>
+    <tr>
+      <th>Manufacturer</th>
+      <th>Number of planes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of manufacturersMoreThanTwoHundredPlanes | getValues">
+      <td>{{ item.key }}</td>
+      <td>{{ item.val }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--Feature 12 - Flights for manufacturers with more than 200 planes-->
+<p *ngIf="!flightsForManufacturersMoreThanTwoHundredPlanes"><em>Loading...</em></p>
+
+<table class='table' *ngIf="flightsForManufacturersMoreThanTwoHundredPlanes" style="margin-top: 30px;">
+  <caption>Number of flights for manufacturers with more than 200 planes</caption>
+  <thead>
+    <tr>
+      <th>Manufacturer</th>
+      <th>Number of flights responsible</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of flightsForManufacturersMoreThanTwoHundredPlanes | getValues">
+      <td>{{ item.key }}</td>
+      <td>{{ item.val }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--Feature 13 - Planes for each Airbus Model-->
+<p *ngIf="!planesForEachAirbusModel"><em>Loading...</em></p>
+
+<table class='table' *ngIf="planesForEachAirbusModel" style="margin-top: 30px;">
+  <caption>Number of planes for each Airbus Model</caption>
+  <thead>
+    <tr>
+      <th>Airbus Model</th>
+      <th>Number of planes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of planesForEachAirbusModel | getValues">
+      <td>{{ item.key }}</td>
+      <td>{{ item.val }}</td>
+    </tr>
+  </tbody>
+</table>
+
